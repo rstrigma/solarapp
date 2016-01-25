@@ -1,0 +1,111 @@
+
+	<div ng-include src="'includes/adminheader.html'"></div>  
+	<div ng-include src="'includes/adminleftsidebar.html'"></div>  
+	
+	<div id="main" role="main" ng-controller="PartnersCtrl">
+		<div id="ribbon">
+			<span class="ribbon-button-alignment"> 
+				<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
+					<i class="fa fa-refresh"></i>
+				</span> 
+			</span>
+			<!-- breadcrumb -->
+			<ol class="breadcrumb">
+				<li>Home</li><li>Partners</li><li>Add Partner</li>
+			</ol>
+		</div>
+		<div id="content">
+			
+			
+			<section id="widget-grid" class="">
+				<div class="row">
+					<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable">
+					<div role="widget" style="" class="jarviswidget jarviswidget-sortable" id="wid-id-3" data-widget-editbutton="false" data-widget-custombutton="false">
+
+						<header role="heading">
+							<span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+							<h2>Add Partner</h2>				
+							<span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+						</header>
+						
+						
+						<div role="content">
+							<div class="jarviswidget-editbox"></div>
+							<div class="widget-body no-padding">
+							
+								<!-- <form name="myForm">
+									<fieldset>
+									  <legend>Upload on form submit</legend>
+									  Username:
+									  <input type="text" name="userName" ng-model="username" size="31" required>
+									  <i ng-show="myForm.userName.$error.required">*required</i>
+									  <br>Photo:
+									  <input type="file" ngf-select ng-model="picFile" name="file" accept="image/*" ngf-max-size="2MB" required ngf-model-invalid="errorFiles">
+									  <i ng-show="myForm.file.$error.required">*required</i><br>
+									  <i ng-show="myForm.file.$error.maxSize">File too large 
+										  {{errorFiles[0].size / 1000000|number:1}}MB: max 2M</i>
+									  <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="thumb"> <button ng-click="picFile = null" ng-show="picFile">Remove</button>
+									  <br>
+									  <button ng-disabled="!myForm.$valid" 
+											  ng-click="uploadPic(picFile)">Submit</button>
+									  <span class="progress" ng-show="picFile.progress >= 0">
+										<div style="width:{{picFile.progress}}%" 
+											ng-bind="picFile.progress + '%'"></div>
+									  </span>
+									  <span ng-show="picFile.result">Upload Successful</span>
+									  <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+									</fieldset>
+									<br>
+								 </form>
+							 -->
+								 <form  name="pageArray" id="contact-form" class="smart-form">
+									<fieldset>					
+											<section>
+												<label class="label">
+														<div class="input input-file">
+															<span class="button">	
+															  <input type="file" ngf-select ng-model="picFile" name="file" accept="image/*" ngf-max-size="5MB" required ngf-model-invalid="errorFiles">Browse</span>
+																<input type="text" placeholder="Include some files" readonly="">
+														</div>
+												</label>
+											</section>
+											
+											<section>
+												<label class="input">
+														<img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="thumb"> 
+														<button ng-click="picFile = null" ng-show="picFile" class="button">Remove</button>
+												</label>
+											</section>
+											
+											<section>
+												<label class="label">Link</label>
+												<label class="input">
+													<i class="icon-append fa fa-envelope-o"></i>
+													<input type="text" ng-model="pageArray.link" id="title"  placeholder="link" required>
+													 <i ng-show="pageArray.link.$error.required">*required</i>
+												</label>
+											</section>
+										
+										
+										<section>
+											<label class="label">Tooltip</label>
+											<label class="input">
+												<i class="icon-append fa fa-tag"></i>
+												<input type="text" ng-model="pageArray.tooltip" id="title" placeholder="tooltip" required>
+												<i ng-show="pageArray.tooltip.$error.required">*required</i>
+											</label>
+										</section>
+									</fieldset>
+									
+									<footer>
+									 <button ng-disabled="!pageArray.$valid" ng-click="AddPartner(picFile,pageArray)" class="btn btn-primary">Submit</button>
+									</footer>
+								</form> 
+							</div>
+						</div>
+					</article>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div ng-include src="'includes/adminfooter.html'"></div> 

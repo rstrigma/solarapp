@@ -1,0 +1,66 @@
+
+	<div ng-include src="'includes/adminheader.html'"></div>  
+	<div ng-include src="'includes/adminleftsidebar.html'"></div>  
+	
+	<div id="main" role="main" ng-controller="PageviewCtrl">
+		<div id="ribbon">
+			<span class="ribbon-button-alignment"> 
+				<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
+					<i class="fa fa-refresh"></i>
+				</span> 
+			</span>
+			<!-- breadcrumb -->
+			<ol class="breadcrumb">
+				<li>Home</li><li>Pages</li><li>Edit Page</li>
+			</ol>
+		</div>
+		<div id="content">
+			<div class="row">
+				<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+				</div>
+			</div>
+			
+			<section id="widget-grid" class="">
+
+				<div class="row">
+					<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable">
+							
+					<div role="widget" style="" class="jarviswidget jarviswidget-sortable" id="wid-id-3" data-widget-editbutton="false" data-widget-custombutton="false">
+
+						<header role="heading">
+							<span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+							<h2>Edit Page</h2>				
+							<span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+						</header>
+						<div role="content">
+								<div class="jarviswidget-editbox"></div>
+								<div class="widget-body padding">
+									
+									<form id="order-form" class="smart-form" novalidate="novalidate" name="editForm">
+										<fieldset>
+											<div class="row">
+											<section>
+												<div class="input input-file">
+													<input type="text" ng-model="pageArray.title" id="title" name="title"  placeholder="page title" >
+												</div>
+											</section>
+
+											<section>
+												<label class="textarea"> <i class="icon-append fa fa-comment"></i> 										
+													<textarea rows="5" ng-model="pageArray.content"  name="comment" placeholder="Tell us about your project">{{pageArray.content}}</textarea> 
+												</label>
+											</section>
+										</fieldset>
+										<footer>
+											<button type="submit" class="btn btn-primary" ng-click="updateform(pageArray)">Update</button>
+										</footer>
+									</form>
+								</div>
+							</div>
+						</div>
+					</article>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div ng-include src="'includes/adminfooter.html'"></div> 

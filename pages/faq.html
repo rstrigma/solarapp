@@ -1,0 +1,208 @@
+<div ng-controller="FaqsCtrl">
+			
+	<!-- <header id="siteheader" ng-include="'includes/header.html'"></header> -->
+	
+<header id="siteheader">
+		<div class="container">
+			<div class="brand">
+				<a ng-click="home()"></a>
+			</div>
+			<nav>
+				<ul>
+					<li><a ng-click="home()">Home</a></li>
+					<li><a ng-click="about()">About</a></li>
+					<li><a ng-click="partner()">Press</a></li>
+					<li><a ng-click="contact()">Contacts</a></li>
+				</ul>
+			</nav>
+			<div class="account-btn">
+
+				<button ng-click='myaccount()'>My Account</button>
+				
+				<modal-dialog show='modalShown' width='400px' height='60%'>
+					<div  class="s25dialog" id="signUpDialogdialog" style="visibility: inherit; opacity: 1; top: 79.5px;">
+						<div class="s25_wrapper">
+					
+							<div  class="s25xButton" id="signUpDialogxButton"></div>
+							<div class="s25_header">
+								<div class="s25_switchLinkContainer">
+									<a class="s25switchDialogLink" id="signUpDialogswitchDialogLink" href="#/admin">Login</a>
+									<p class="s25note" id="signUpDialognote">I'm already a user,</p>
+								</div>
+								<h3 class="s25title" id="signUpDialogtitle">Sign up</h3>
+							</div>
+							<div class="s25content" id="signUpDialogcontent">
+								
+
+								<form name="regiterform" novalidate role="regiterform" id="homeregiterform">
+									
+									<div class="s25email" id="signUpDialogemail">
+										<div id="signUpDialoginputWithValidation1" class="s25inputWithValidation">
+											<label class="s25inputWithValidationlabel" id="signUpDialoginputWithValidation1label">Email</label>
+											<input type="email" name="email" data-ng-model="email" class="s25inputWithValidationinput" required/>
+											<span class="label label-danger" data-ng-show="submitted && regiterform.email.$error.required">Required!</span>
+											<span class="label label-danger" data-ng-show="submitted && regiterform.$error.email">Invalid email!</span>
+										</div>
+									</div> 
+									
+									<div class="s25_footer">
+										<button  data-ng-click="userSignup(regiterform)" class="s25submitButton">Go</button>
+									</div>
+									
+								</form>
+							</div>
+						</div>
+					</div>
+				</modal-dialog>
+				
+				<modal-dialog show='signupFrom' width='400px' height='60%'>
+					<div  class="s25dialog" id="signUpDialogdialog" style="visibility: inherit; opacity: 1; top: 79.5px;">
+						<div class="s25_wrapper">
+					
+							<div  class="s25xButton" id="signUpDialogxButton"></div>
+							<div class="s25_header">
+								<h3 class="s25title" id="signUpDialogtitle">Sign up</h3>
+								<h5>Fill in your details to get in the SolarChange platform. Only one registration is needed to get free full access to the website and the mobile app!</h5>
+							</div>
+							<div class="s25content" id="signUpDialogcontent">
+								
+								<form name="mainSignup" novalidate role="mainSignup" id="homemainSignup">
+									
+									<div class="s25email" id="signUpDialogemail">
+										<div id="signUpDialoginputWithValidation1" class="s25inputWithValidation">
+											<label class="s25inputWithValidationlabel" id="signUpDialoginputWithValidation1label">Email</label>
+												<input type="email" name="email" ng-model="email" class="s25inputWithValidationinput"  required />
+												<span class="label label-danger" ng-show="submitted && mainSignup.email.$error.required">Required!</span>
+												<span class="label label-danger" ng-show="submitted && mainSignup.$error.email">Invalid email!</span>
+										</div>
+									</div>
+									
+									<div class="s25email" id="signUpDialogemail">
+										<div id="signUpDialoginputWithValidation1" class="s25inputWithValidation">
+											<label class="s25inputWithValidationlabel" id="signUpDialoginputWithValidation1label">First Name</label>
+											<input type="firstname" name="firstname" ng-model="firstname"  class="s25inputWithValidationinput" required />
+											<span class="label label-danger" ng-show="submitted && mainSignup.firstname.$error.required">Required!</span>
+										</div>
+									</div>
+									
+									
+									<div class="s25email" id="signUpDialogemail">
+										<div id="signUpDialoginputWithValidation1" class="s25inputWithValidation">
+											<label class="s25inputWithValidationlabel" id="signUpDialoginputWithValidation1label">Last Name</label>
+											<input type="lastname" name="lastname" ng-model="lastname"  class="s25inputWithValidationinput" required />
+											<span class="label label-danger" ng-show="submitted && mainSignup.lastname.$error.required">Required!</span>
+										</div>
+									</div>
+									
+									<div class="s25email" id="signUpDialogemail">
+										<div id="signUpDialoginputWithValidation1" class="s25inputWithValidation">
+											<label class="s25inputWithValidationlabel" id="signUpDialoginputWithValidation1label">Choose Pass</label>
+											<input type="password" id="password" name="password" ng-model="formData.password"  class="s25inputWithValidationinput" required  />	
+											<span class="label label-danger" ng-show="submitted && mainSignup.password.$error.required">Required!</span>
+
+										</div>
+									</div>
+									
+									<div class="s25email" id="signUpDialogemail">
+										<div id="signUpDialoginputWithValidation1" class="s25inputWithValidation">
+											<label class="s25inputWithValidationlabel" id="signUpDialoginputWithValidation1label">Retype Pass</label>
+
+										<input type="password" class="s25inputWithValidationinput" id="password_c" name="password_c" ng-model="formData.password_c" valid-password-c required  />
+										<span  class="label label-danger"  ng-show="mainSignup.password_c.$error.required">Please confirm your password.</span>
+										<span  class="label label-danger"  ng-show="!mainSignup.password_c.$error.required && mainSignup.password_c.$error.noMatch">Passwords do not match.</span>
+
+										</div>
+									</div>
+									
+									
+									<p id="signUpDialoginputWithValidation3errorMessage" class="s25inputWithValidationerrorMessage"></p>
+									<div class="form-group fadeMe checkbox col-sm-12">
+									  <label class="fitText" style="font-size: 15px;">
+										<input class="checkbox" name="I own a solar installation" type="checkbox" value="I own a solar installation" data-export-field="" placeholder="" style="font-size: 15px;" >
+										I own a solar installation
+									  </label>
+									</div> 
+									
+									<div class="form-group fadeMe checkbox col-sm-12">
+										<label class="fitText" style="font-size: 15px;">
+											<input class="checkbox" name="iagree" type="checkbox" data-export-field="" placeholder="" required />
+											I agree to the terms and conditions*
+											<span class="label label-danger" ng-show="submitted && mainSignup.iagree.$error.required">Required!</span>
+										</label> 
+									</div>
+									
+
+									<div class="s25_footer">
+										<button data-ng-disabled="progress.active()" ng-click="headerSignup(mainSignup)" class="s25submitButton">Go</button>
+									</div>
+									
+								</form>
+							</div>
+						</div>
+					</div>
+				</modal-dialog>
+				
+			</div>
+		</div>   
+	</header>
+
+	<div class="faq-banner">
+		<img src="images/faq-img.jpg" alt="">
+		<h1>FAQ</h1>
+	</div>
+	<div class="container">
+
+	<div class="faq-content1" ng-repeat="(id, faqdata) in faqs">
+		<h3 ng-bind-html="faqdata.question | sanitize"></h3>
+		<p ng-bind-html="faqdata.answer  | sanitize"></p>
+	</div>
+
+	<div class="form-heading">
+		<h3>Want to know when we launch? Do you have any questions?</h3>
+		<h2>Feel free to contact us!</h2>
+	</div>
+	<article id="contact-form" class="contact-form faq-contact">
+			<div class="container">
+				<h3>Contact Us</h3>
+				
+				<!-- <div id="messages" class="alert alert-success" data-ng-show="messages" data-ng-bind="messages"></div>
+				<div data-ng-show="progress.active()" style="color: red; font-size: 50px;">Sending&hellip;</div> -->
+				
+				<form role="form" novalidate="" name="helpForm" class="ng-pristine ng-invalid ng-invalid-required ng-valid-email">
+
+					<div class="form-group">
+						<label for="name">Your Name </label>
+						<input type="text" required="" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" data-ng-model="name" name="name">
+						<span data-ng-show="submitted &amp;&amp; helpForm.name.$error.required" class="label label-danger ng-hide">Required!</span>
+					</div>
+
+					<div class="form-group">
+						<label for="email">Your E-mail address</label>
+						
+						<input type="email" required="" class="form-control ng-pristine ng-untouched ng-valid-email ng-invalid ng-invalid-required" data-ng-model="email" name="email">  
+						<span data-ng-show="submitted &amp;&amp; helpForm.email.$error.required" class="label label-danger ng-hide">Required!</span>
+						<span data-ng-show="submitted &amp;&amp; helpForm.$error.email" class="label label-danger ng-hide">Invalid email!</span>
+					</div>
+
+					<div class="form-group">
+						<label for="subject">Subject</label>
+					
+						<input type="subject" required="" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" data-ng-model="subject" name="subject">  
+						<span data-ng-show="submitted &amp;&amp; helpForm.subject.$error.required" class="label label-danger ng-hide">Required!</span>
+						<span data-ng-show="submitted &amp;&amp; helpForm.$error.subject" class="label label-danger ng-hide">Invalid subject!</span>
+						
+					</div>
+
+					<div class="form-group">
+						<label for="subject">Message</label>
+						<textarea required="" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" data-ng-model="message" name="message"></textarea>
+						<span data-ng-show="submitted &amp;&amp; helpForm.message.$error.required" class="label label-danger ng-hide">Required!</span>
+					</div>
+					<button class="btn btn-default" data-ng-click="submit(helpForm)" data-ng-disabled="progress.active()">Submit</button>
+				</form>
+			</div> 
+			<a class="back-top" id="back-top" title="Back to top" ng-click="backtotop()"></a>
+		</article>
+	</div>
+	<footer ng-include="'includes/footer.html'"></footer>
+</div>

@@ -1,0 +1,102 @@
+
+	<div ng-include src="'includes/adminheader.html'"></div>  
+	<div ng-include src="'includes/adminleftsidebar.html'"></div>  
+	
+
+	<div id="main" role="main" ng-controller="DashboardCtrl">
+		<div id="ribbon">
+			<span class="ribbon-button-alignment"> 
+				<span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
+					<i class="fa fa-refresh"></i>
+				</span> 
+			</span>
+			<!-- breadcrumb -->
+			<ol class="breadcrumb">
+				<li>Home</li><li>Dashboard</li>
+			</ol>
+		</div>
+		<div id="content">
+			<div class="row">
+				<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+					<h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-home"></i> Dashboard <span>> My Dashboard</span></h1>
+				</div>
+			</div>
+			<section id="widget-grid" class="">
+
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="well">
+							<h1><small class="text-danger slideInRight fast animated"><strong>Manage the dashboard </strong></small></h1>
+							<p>Click the given link to manage the section</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<article class="col-xs-12 col-sm-6 col-md-6 col-lg-4 sortable-grid ui-sortable">
+						<div id="wid-id-0" class="jarviswidget jarviswidget-sortable" style="" role="widget">
+								<header role="heading">
+									<h2><strong>Pages</strong></h2>				
+									<span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+								</header>
+								<div role="content">
+
+									<div class="widget-body">
+										<p> Manage the page. One side of a leaf of something printed or written, as a book, manuscript or letter.The entire leaf of such a printed or written thing: He tore out one of the pages.</p>
+										<a class="btn btn-default btn-lg" href="#/admin/pages"> <strong>Go </strong></a>
+									</div>
+								</div>
+							</div>
+					</article>
+					<article class="col-xs-12 col-sm-6 col-md-6 col-lg-4 sortable-grid ui-sortable">
+						<div id="wid-id-0" class="jarviswidget jarviswidget-sortable" style="" role="widget">
+								<header role="heading">
+									<h2><strong>Contact Listing</strong></h2>				
+									<span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+								</header>
+								<div role="content">
+                                
+									<div class="widget-body">
+										<p>Listing contact from visitor. simply add a new page and select the Contact Form page template in the Attributes panel. You can add your contact e-mail in the options panel under on it</p>
+										<a class="btn btn-default btn-lg" href="#/admin/contacts"> <strong>Go </strong></a>
+									</div>
+								</div>
+						</div>
+					</article>
+					
+					<article class="col-xs-12 col-sm-6 col-md-6 col-lg-4 sortable-grid ui-sortable">
+						<div id="wid-id-0" class="jarviswidget jarviswidget-sortable" style="" role="widget">
+								<header role="heading">
+									<h2><strong>Faq</strong></h2>				
+									<span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+								</header>
+								<div role="content">
+                                
+									<div class="widget-body">
+										<p>Faq section which is a list of questions and answers relating to a particular subject, especially one giving basic information for users of a website.</p>
+										<a class="btn btn-default btn-lg" href="#/admin/faqs"> <strong>Go </strong></a>
+									</div>
+								</div>
+						</div>
+					</article>
+ 
+					<article class="col-xs-12 col-sm-6 col-md-6 col-lg-4 sortable-grid ui-sortable">
+						<div id="wid-id-0" class="jarviswidget jarviswidget-sortable" style="" role="widget">
+								<header role="heading">
+									<h2><strong>Partner</strong></h2>				
+									<span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+								</header>
+								<div role="content">
+
+									<div class="widget-body">
+										<p>Homepage partner section for showing the differnt partner logo and its description.</p>
+										<a class="btn btn-default btn-lg" href="#/admin/partners"> <strong>Go </strong></a>
+									</div>
+								</div>
+							</div>
+					</article>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div ng-include src="'includes/adminfooter.html'"></div> 

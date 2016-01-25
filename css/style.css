@@ -1,0 +1,555 @@
+* {margin:0; padding:0; box-sizing:border-box; line-height:auto; text-decoration: none; list-style: none; outline:none; border:none;}
+img {border:none; max-width:100%;}
+html {}
+body {padding-top: 105px; font-family: basic,sans-serif;}
+a, button {transition:all 400ms ease;}
+
+/* Popup modal */
+.ng-modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  position:absolute;
+  z-index:9999;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color:#000000;
+  opacity: 0.8;
+}
+.ng-modal-dialog {
+  /* A centered div above the overlay with a box shadow. */
+  z-index:10000;
+  position: absolute;
+  width: 50%; /* Default */
+  height:auto!important;
+
+  /* Center the dialog */
+  top:32px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+
+  background-color: #fff;
+  box-shadow: 4px 4px 80px #000;
+}
+
+.ng-modal-close {
+	border: 1px solid #ccc;
+    border-radius: 31px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "arial","sans-serif";
+    font-size: 120%;
+    font-weight: bold;
+    padding: 5px;
+    position: absolute;
+    right: -61px;
+    top: 65px;
+    width: 26px;
+    z-index: 9999;
+}
+
+
+.s25_ghost {
+    opacity: 0.5;
+}
+.s25 {
+    color: #9c9c9c;
+    font-size: 1em;
+    height: 100%;
+    width: 100%;
+    z-index: 998;
+}
+.s25[data-state~="mobile"] {
+    color: #9c9c9c;
+    font-size: 1em;
+    height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+    z-index: 998;
+}
+.s25[data-state~="mobile"] .s25dialog {
+    left: calc(50% - 130px);
+    padding: 10px;
+    position: absolute;
+    top: 20px;
+    width: 260px;
+}
+.s25[data-state~="mobile"] .s25_wrapper {
+    padding: 10px 20px;
+}
+.s25[data-state~="mobile"] .s25title {
+    font-size: 14px;
+}
+.s25[data-state~="mobile"] .s25infoTitle {
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+.s25[data-state~="mobile"] .s25cancel {
+    font-size: 14px;
+    line-height: 30px;
+}
+.s25[data-state~="mobile"] .s25errMsg {
+    height: 24px;
+}
+.s25[data-state~="mobile"] .s25submitButton {
+    font-size: 14px;
+    height: 36px;
+    width: 100px;
+}
+.s25blockingLayer {
+    background-color: rgba(85, 85, 85, 0.75);
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    visibility: visible;
+}
+.s25dialog {
+    background-color: rgba(170, 170, 170, 0.7);
+    box-sizing: border-box;
+    left: calc(50% - 250px);
+    padding: 20px;
+    position: fixed;
+    top: calc(50% - 250px);
+    visibility: hidden;
+    width: 500px;
+}
+.s25_wrapper {
+    background-color: rgba(255, 255, 255, 1);
+    box-sizing: border-box;
+    height: 100%;
+    padding: 20px 40px;
+    width: 100%;
+}
+.s25[data-state~="canBeClosed"] .s25xButton {
+    background: url("//static.parastorage.com/services/skins/2.1212.0/images/wysiwyg/core/themes/base/viewer_login_sprite.png") no-repeat scroll right top transparent;
+    cursor: pointer;
+    height: 30px;
+    position: absolute;
+    right: -14px;
+    top: -14px;
+    width: 30px;
+}
+.s25[data-state~="canBeClosed"] .s25xButton:hover {
+    background-position: right -80px;
+}
+.s25note {
+    float: right;
+    font-size: 12px;
+    margin-right: 4px;
+    padding-bottom: 10px;
+    text-align: right;
+}
+.s25switchDialogLink {
+    border-bottom: 1px solid #0198ff;
+    color: #0198ff;
+    float: right;
+    font-size: 12px;
+}
+.s25switchDialogLink:hover {
+    border-bottom-color: #04f;
+    color: #04f;
+}
+.s25title {
+    color: #555;
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+.s25infoTitle {
+    color: #0198ff;
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 28px;
+    margin-top: 10px;
+}
+.s25_footer {
+    padding-bottom: 30px;
+    width: 100%;
+}
+.s25[data-state~="canBeClosed"] .s25_footer {
+    padding-bottom: 10px;
+}
+.s25cancel {
+    color: #9c9c9c;
+    float: left;
+    font-size: 18px;
+    line-height: 36px;
+    text-decoration: underline;
+}
+.s25cancel:hover {
+    color: #9c3c3c;
+}
+.s25errMsg {
+    color: #d74401;
+    font-size: 12px;
+    height: 34px;
+    margin-top: 5px;
+}
+.s25submitButton {
+    background: url("//static.parastorage.com/services/skins/2.1212.0/images/wysiwyg/core/themes/base/viewer_login_sprite.png") repeat-x scroll right -252px transparent;
+    border: 2px solid #0064a8;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-family: Arial,sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    height: 36px;
+    margin-left: auto;
+    margin-right: 0;
+    width: 143px;
+}
+.s25submitButton:hover {
+    background-position: right -352px;
+    border-color: #004286;
+}
+.s25description {
+    color: #585858;
+    float: none;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 25px;
+    margin-bottom: 10px;
+}
+.s25_switchLinkContainer {
+    float: right;
+    padding-bottom: 25px;
+}
+.s25inputWithValidation_ghost {
+    opacity: 0.5;
+}
+.s25inputWithValidation {
+    font-size: 1em;
+}
+.s25inputWithValidationlabel {
+    color: #585858;
+    float: none;
+    font-size: 17px;
+    line-height: 25px;
+}
+.s25inputWithValidation[data-state~="mobile"] label {
+    font-size: 14px;
+    line-height: 20px;
+}
+.s25inputWithValidationinput {
+    border: 1px solid #a1a1a1;
+    box-sizing: border-box;
+    font-size: 19px;
+    height: 29px;
+    width: 100%;
+}
+.s25inputWithValidation[data-state~="mobile"] .s25inputWithValidationinput {
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+}
+.s25inputWithValidationinput[type="password"] {
+    font-size: 38px;
+}
+.s25inputWithValidation[data-state~="mobile"] .s25inputWithValidationinput[type="password"] {
+    font-size: 14px;
+}
+.s25inputWithValidationerrorMessage {
+    color: #d74401;
+    display: block;
+    font-size: 12px;
+    height: 15px;
+    text-align: right;
+}
+.s25inputWithValidationinput.s25inputWithValidation_error {
+    border-color: #d74401;
+}
+
+
+/* Close modal*/
+
+.container {max-width:1280px; width:100%; padding:0px 15px; margin:0 auto;}
+.about-content{float:left; width:100%;  margin-top:10px;float:left; width:90%;  margin-top:10px;}
+header {float:left; width:100%; position: fixed; left: 0; top:0; padding:10px 0; background: #fff; box-shadow: 0px 3px 8px #444; z-index: 999;}
+header .brand {float:left; width:auto;}
+header .brand a{float:left; padding:44px 75px; width:auto; background:url(../images/solar-change-logo.jpg) no-repeat center center; background-size: contian;}
+header nav {float:left; margin:25px 0px 0px 40px;}
+header nav ul, header nav ul li, header nav ul li a{float:left; width:auto;}
+header nav ul li a {padding:8px 20px; color:#ffa736; font-size:18px; font-weight:700; cursor:pointer; }
+header nav ul li + li a {border-left:3px solid #000; margin-left:10px;}
+header nav ul li a:hover {color:#5b827d; }
+header .account-btn {float:right;}
+a.a-next {position: absolute; bottom: 22%; left:50%; margin-left:-25px; height:50px; width:50px; color:#ffa736; transform:rotate(90deg);cursor:pointer; }
+a.a-next svg {color:#ffa736;}
+header .account-btn button {display: inline-block; color:#ffa736; border:3px solid #ffa736; text-align: center;
+font-weight: 400; padding:7px 15px; margin-top:25px; font-size:14px; background:none; border-radius:5px;}
+header .account-btn button:hover {border-color: rgba(61, 155, 233, 1); color:#000;}
+
+.video-banner, .video-banner video {float:left; width:100%; }
+.video-banner {position: relative; height:710px; overflow: hidden; background: rgba(0, 0, 0, 0) url("../images/vd-fallback.png") no-repeat scroll 0 0 / cover ;}
+.video-banner video {position: fixed;top: 50%;left: 50%;min-width: 100%;min-height: 100%;width: auto;height: auto;z-index: -100;
+-webkit-transform: translateX(-50%) translateY(-50%);transform: translateX(-50%) translateY(-50%);background: url('../images/vd-fallback.png') no-repeat; background-size:cover;    }
+.video-banner h1 {position: absolute; top:300px; font-size: 55px; text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6), -1px -1px 1px rgba(0, 0, 0, 0.6); color:#000; left:0; width: 100%; z-index: 99; text-align: center;} 
+
+section.main {float:left; width:100%; background:#fff;}
+section.main article.solar-production {background: url(../images/production-bg.jpg) no-repeat center top;  padding:50px 0; background-size: cover; min-height: 900px; text-align: center; padding-top:80px;}
+section.main article h1 { font-size: 55px;  color:#000; float:left; width:100%; margin:30px 0; text-align: center; padding-bottom: 10px; font-weight: 400;}
+
+section.main article.solar-production a { background-color: rgba(0, 46, 93, 1);  border: 1px solid rgba(255, 255, 255, 1); border-radius: 3px; width:25%; padding:15px 20px; display:inline-block; color:#fff; font-size:22px;}
+.slr {font-size:20px !important;}
+section.main article.solar-production a:hover{ background-color: rgba(43, 108, 163, 1);}
+
+section.main article h4 {float:left; width:100%; margin:20px 0; text-align: center; font-size: 20px;}
+section.main article h4 span {padding-bottom: 50px;}
+
+section.main article.solar-production h4 a {background:none; color:#2A2A2A;font-size: 20px; border:none; padding:0; width:100%; }
+section.main article.solar-production h4 a:hover {color:#ffa736; background:none; border:0;}
+.solar-production .get-revard:hover {background-color: rgba(43, 108, 163, 1);}
+
+.solar-earth {float:left; width:100%; padding:80px 0 30px; background: url(../images/earth-bg.jpg) no-repeat center top; background-attachment: fixed; background-size: cover; position: relative;}
+section.main article.solar-earth h1, section.main article.solar-earth p {float:left; width:100%; margin:5px 0; max-width:70%; text-align: left;}
+section.main article.solar-earth h1 {margin-left:100px; width:auto; position: relative;}
+section.main article.solar-earth h1:after, section.main article.solar-earth h1:before {position: absolute; left:20%; width:60%; background:#fcb021; content:'';}
+section.main article.solar-earth h1:after{height:3px; bottom: 12px;}
+section.main article.solar-earth h1:before{height:1px; bottom: 8px;}
+section.main article.solar-earth p  {font-family: basic,sans-serif; font-size: 20px; color: rgba(0, 0, 0, 1);}
+section.main article.solar-earth p span { font-weight: bold;  font-size: 24px;  color: #fcb021;}
+section.main article.solar-earth p strong { font-weight: bold;  font-size: 20px;  color: #000;}
+a.solar-coin, a.back-top {position: absolute; bottom: 8%; right:22%; width:auto;}
+a.back-top {bottom:0; right:10px; height:40px; width:35px; background: url(../images/scroll-top.png) no-repeat center bottom; background-size: contain;}
+
+.label-danger {background-color: #d9534f; float: right;}
+.label {border-radius: 0.25em;color: #fff;display: inline;font-size: 75%;font-weight: bold;line-height: 1;padding: 0.2em 0.6em 0.3em;text-align: center;vertical-align: baseline;white-space: nowrap;}
+textarea.form-control {height: auto;}
+.contact-form {float:left; width:100%; padding:80px 0 30px; position: relative; background:#fff; text-align: center;}
+.contact-form h3 {font-family: basic,sans-serif; font-size: 30px; color:#000;}
+.contact-form form {float:none;display: inline-block; max-width: 600px; width:100%; margin:20px 0;}
+.contact-form form label {float:left; width:100%; padding:5px 0; text-align: left; color:#000; font-size: 15px; font-family:basic,sans-serif; font-weight: 400;}
+.contact-form form input, .contact-form form textarea {float:left; margin-bottom:10px; width:100%; color:#000; text-align: left; font-size: 15px;  background-color: rgba(255, 255, 255, 1);
+border: 1px solid rgba(61, 155, 233, 1);  border-radius: 5px; box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2); padding:5px;  font-family:basic,sans-serif; font-weight: 400;}
+.btn.btn-default:hover{background-color:#87bdeb;}
+.btn.btn-default {max-width:100px; float: right; text-align: center; background-color: rgba(61, 155, 233, 0.28);border:none; cursor: pointer; border-radius: 5px;box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2);color: #000;font-family: basic,sans-serif;font-size: 15px;font-weight: 400;margin-bottom: 10px;padding: 5px;width: 100%;}
+.contact-form form input[type="submit"] {max-width:100px; float: right; text-align: center; background-color: rgba(61, 155, 233, 0.28); border:none;  }
+.world-change {float:left; width:100%; text-align: center; padding: 0; box-shadow: 0 0 5px rgba(0, 0, 0, 0.7); border-top:5px solid rgba(252, 176, 33, 1);}
+.world-change h2, .world-change a {display: inline-block; float: left; margin:5px 5px 5px 16%; width: auto; clear: none;}
+.world-change h2 {clear:none;color:#000;display: inline;float: left;font-family:anton,sans-serif;font-size:45px;margin:20px 30px 5px;    text-align:center;}
+footer {float:left; width:100%; padding-top:20px ;  background-color: rgba(252, 176, 33, 1); text-align: center;}
+footer ul, footer ul li {display: inline-block; width:auto;}
+footer ul {clear:both; width: 100%; text-align: center;}
+footer ul li a {display: inline-block; width:auto; padding:3px 10px; min-width:198px; text-align: center; border-top:3px solid #000;
+ border-bottom:3px solid #000; color: #000000; font: 16px/1.4em basic,sans-serif;}
+footer ul li a:hover {background:#fff;}
+footer ul li + li {margin-left:20px;}
+footer ul.social li a{border:0; min-width:inherit; padding:2px; margin-top:10px;}
+footer ul.social li a:hover {background:none;}
+footer ul.social li + li {margin:0;}
+
+
+/* 
+	Created css for get-rewards page
+	Created By: Navneet Sangar
+	Created Date : 29-12-2015
+*/
+.get-reward{
+	 float: none;
+	 display: inline-block;
+	 width:100%;
+	background-color: rgba(255, 255, 255, 0.66);
+	border: 1px solid #000;
+	border-radius: 5px;
+	margin-top:4px;
+}
+.heading-top {
+	 
+	width: 100%;
+	font-family: basic,sans-serif;
+	font-size:50px;
+	color: #000;
+	margin-top: 35px;
+}
+.border-line {
+
+    border-top: 3px solid #FFAB51;
+    border-bottom: 1px solid #FFAB51;
+    padding: 5px 0px 0px;
+	height: 9px;
+	max-width: 284px;
+    display: inline-block;
+    width: 100%;
+}
+.content-area {
+     
+    width: 84%;
+    display: inline-block;
+    margin-top: 9px; 
+}
+.content-area p {
+	font-size: 24px;
+	text-align: center;
+	font-family:Basic;
+	font-weight: 400;
+	margin-bottom: 20px; 
+}
+.content-area h4 {
+	font-size: 26px;
+	text-align: center;
+	color: #000;
+	margin-bottom: 30px; 
+}
+.content-area h3 {
+	font-size: 26px;
+	text-align: center;
+	color: #5A76AA;
+	margin-bottom: 15px;
+}
+.form-reg {
+    max-width: 580px;
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 15px;
+	 
+}
+.text-area {
+	font-size: 17px;
+    background-color: #FFF;
+    border: 2px solid #3D9BE9;
+    width: 100%;
+    color: #000;
+    margin: 0px 0px 5px;
+    height: 38px;
+    padding:5px;
+	border-radius: 5px;
+	color: #544A4A;
+}
+.form-reg button {
+    background-color: #3D9BE9;
+    font: 16px;
+    border: 0px none;
+    color: #FFF;
+    cursor: pointer;
+    float: right;
+    margin: 0px;
+    border-radius: 5px;
+    padding: 5px;
+}
+.inner-container {
+	max-width: 980px;
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
+	float: left;
+margin-left: 13.5%;
+
+}
+section.main article.solar-production.reward-img {
+    min-height: 605px !important;
+    background-attachment: fixed;
+}
+.faq-banner {
+    float: left;
+    width: 100%;
+    position: relative;
+    margin-top: -12px;
+}
+
+.faq-banner h1{
+    position: absolute;
+    left:0;
+    top:50%;
+    width:100%;
+    margin-top:-25px;
+    color:#fff;
+    text-align: center;
+    z-index: 99;
+    font-size: 55px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.faq-content1 {
+    margin-top: 15px;
+}
+.faq-content1 h3 {
+    font-size: 19px;
+    color: #5A76AA;
+    font-family: basic,sans-serif;
+    font-weight: 400;
+}
+.faq-content1 p {
+    font-size: 17px;
+    font-family: basic,sans-serif;
+    font-weight: 400;
+}
+.faq-content1 ul li {
+    list-style: inside;
+}
+.form-heading h3 {
+    font-weight: 600;
+    font-size: 24px;
+    color: #FCB021;
+    text-align: center;
+    margin-top: 15px;
+}
+.form-heading h2 {
+    font-weight: 600;
+    font-size: 24px;
+    color: #FCB021;
+    text-align: center;
+}
+
+.world-brands {float:left; width:100%; background:url(../images/brands-bg.jpg) no-repeat center center; background-size:100% 100%; position:relative;}
+.inner-fade {float:left; width:100%; padding:20px; background:rgba(255,255,255,.4); border-radius:5px; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);border: 1px solid rgba(61, 155, 233, 1);}
+.world-brands h1 {float:left; width:100%;}
+section.main article.world-brands h1 {padding-bottom:0;}
+.world-brands ul {float:left; width:100%;  display:table;}
+.world-brands ul li{ width:100%; max-width:33%; text-align:center; display:inline-block; vertical-align:middle;}
+.world-brands ul li.half-w {max-width:49%;}
+.world-brands ul li a{display:inline-block; padding:10px 20px; width:100%; vertical-align:middle;}
+.world-brands ul li a img{max-width:300px;}
+
+/* ========================  media styles ==================*/
+
+@media only screen and (max-width:979px){
+	.world-brands ul li a img{max-width:200px;}
+	.world-brands ul li{ max-width:30%; }
+}
+
+@media only screen and (max-width:767px){
+	.world-brands ul li a img{max-width:85%;}
+	.world-brands ul li{ max-width:33%; margin:0;}
+	.world-brands ul {display: block;}
+
+}
+
+@media only screen and (max-width:640px){
+	header nav ul li a {font-size:15px;}
+	.faq-banner {margin-top: 45px;}
+	.world-brands ul li{ max-width:49%;}
+	section.main article.solar-earth h1 { margin-left: 5px;font-size: 34px;}
+	section.main article.solar-earth p, .about-content{max-width: 100%; width:100%;}
+	a.solar-coin  { position: static; bottom:auto; right: auto; width:100%; text-align:center;}
+	section.main article.solar-production a {width: 95%;}
+	section.main article h1 {font-size: 40px;margin: 10px 0;padding-bottom: 20px;}
+}
+
+
+@media only screen and (max-width:568px){
+	header nav {
+    float: left;
+    margin: 10px 0;
+    width: 100%;
+}
+.faq-banner h1 {font-size: 40px;}
+header nav ul {
+    float: left;
+    width: 100%;
+	text-align:center;
+}
+
+header nav ul li, header nav ul li a {display:inline-block; float:none;}
+.account-btn {position:absolute; top:10px; right:15px;}
+}
+
+@media only screen and (max-width:320px){
+	header nav ul li a {padding: 8px 15px;}
+}

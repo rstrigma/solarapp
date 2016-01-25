@@ -1,0 +1,58 @@
+<form name="signupForm" novalidate role="form" class="box login"  ng-controller="SignupCtrl">
+	
+	
+	<fieldset class="boxBody">
+		<div class="form-group">
+		<label>
+			Username 
+			<span class="label label-danger" data-ng-show="submitted && signupForm.username.$error.required">Required!</span>
+		</label>
+			<input type="text" data-ng-model="username" tabindex="1" placeholder="Enter username" required>
+		</div>
+		
+		<div class="form-group">
+			<label>
+				Email
+				<span class="label label-danger" data-ng-show="submitted && signupForm.email.$error.required">Required!</span>
+			</label>
+			<input type="email" data-ng-model="email" tabindex="2" placeholder="Enter email"  required>
+		</div>
+		
+		<div class="form-group">
+			<label>
+				Password
+				<span class="label label-danger" data-ng-show="submitted && signupForm.password.$error.required">Required!</span>
+			</label>
+			<input type="password" data-ng-model="password" tabindex="2" placeholder="Enter password"  required>
+		</div>
+		
+		<div class="form-group">
+			<label>
+				Confirm Password
+				<span class="label label-danger" data-ng-show="submitted && signupForm.cpassword.$error.required">Required!</span>
+			</label>
+			<input type="password" data-ng-model="cpassword" tabindex="2" placeholder="Enter password"  required>
+		</div>
+		
+		<div class="form-group">
+		<label>
+			First Name 
+			<span class="label label-danger" data-ng-show="submitted && signupForm.firstname.$error.required">Required!</span>
+		</label>
+			<input type="text" data-ng-model="firstname" tabindex="1" placeholder="Enter firstname" required>
+		</div>
+		
+		<div class="form-group">
+		<label>
+			Last Name 
+			<span class="label label-danger" data-ng-show="submitted && signupForm.lastname.$error.required">Required!</span>
+		</label>
+			<input type="text" data-ng-model="lastname" tabindex="1" placeholder="Enter lastname" required>
+		</div>
+		
+	</fieldset>
+	
+	<footer> 
+		<button data-ng-disabled="progress.active()" data-ng-click="signup(signupForm)" class="btn btn-default">Signup</button>
+	</footer>
+</form>

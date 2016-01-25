@@ -1,0 +1,184 @@
+<div ng-controller="getrewardCtrl">
+			
+	<!-- <header id="siteheader" ng-include="'includes/popupheader.html'"></header> -->
+	
+	<header id="siteheader">
+		<div class="container">
+			<div class="brand">
+				<a ng-click="home()"></a>
+			</div>
+			<nav>
+				<ul>
+					<li><a ng-click="home()">Home</a></li>
+					<li><a ng-click="about()">About</a></li>
+					<li><a ng-click="partner()">Press</a></li>
+					<li><a ng-click="contact()">Contacts</a></li>
+				</ul>
+			</nav>
+			<div class="account-btn">
+
+				<button ng-click='myaccount()'>My Account</button>
+				
+				<modal-dialog show='modalShown' width='400px' height='60%'>
+					<div  class="s25dialog" id="signUpDialogdialog" style="visibility: inherit; opacity: 1; top: 79.5px;">
+						<div class="s25_wrapper">
+					
+							<div  class="s25xButton" id="signUpDialogxButton"></div>
+							<div class="s25_header">
+								<div class="s25_switchLinkContainer">
+									<a class="s25switchDialogLink" id="signUpDialogswitchDialogLink" href="#/admin">Login</a>
+									<p class="s25note" id="signUpDialognote">I'm already a user,</p>
+								</div>
+								<h3 class="s25title" id="signUpDialogtitle">Sign up</h3>
+							</div>
+							<div class="s25content" id="signUpDialogcontent">
+								
+
+								<form name="regiterform" id="regiterform"  novalidate role="form">
+									
+									<div class="s25email" id="signUpDialogemail">
+										<div id="signUpDialoginputWithValidation1" class="s25inputWithValidation">
+											<label class="s25inputWithValidationlabel" id="signUpDialoginputWithValidation1label">Email</label>
+											<input type="email" id="emailvalue" name="email" data-ng-model="email" class="s25inputWithValidationinput" required/>
+											<span class="label label-danger" ng-show="regiterform.link.$error.required">Required!</span>
+											<span class="label label-danger" ng-show="regiterform.$error.email">Invalid email!</span>
+											
+										</div>
+									</div> 
+									
+									<div class="s25_footer">
+										<button ng-disabled="!regiterform.$valid"  ng-click="userSignup(regiterform)" class="s25submitButton">Go</button>
+									</div>
+									
+								</form>
+							</div>
+						</div>
+					</div>
+				</modal-dialog>
+				
+				<modal-dialog show='signupFrom' width='400px' height='60%'>
+					<div  class="s25dialog" id="signUpDialogdialog" style="visibility: inherit; opacity: 1; top: 79.5px;">
+						<div class="s25_wrapper">
+					
+							<div  class="s25xButton" id="signUpDialogxButton"></div>
+							<div class="s25_header">
+								<h3 class="s25title" id="signUpDialogtitle">Sign up</h3>
+								<h5>Fill in your details to get in the SolarChange platform. Only one registration is needed to get free full access to the website and the mobile app!</h5>
+							</div>
+							<div class="s25content" id="signUpDialogcontent">
+								
+								<form name="signupForm" id="signupForm"  novalidate role="form">
+									
+									<div class="s25email" id="signUpDialogemail">
+										<div id="signUpDialoginputWithValidation1" class="s25inputWithValidation">
+											<label class="s25inputWithValidationlabel">Email</label>
+												<input type="email" id="signupemailvalue"  name="email" ng-model="email" class="s25inputWithValidationinput" required />
+												<span class="label label-danger" ng-show="signupForm.link.$error.required">Required!</span>
+												<span class="label label-danger" ng-show="signupForm.$error.email">Invalid email!</span>
+												
+										</div>
+									</div>
+									
+									<div class="s25email" id="signUpDialogemail">
+										<div id="signUpDialoginputWithValidation1" class="s25inputWithValidation">
+											<label class="s25inputWithValidationlabel" id="signUpDialoginputWithValidation1label">First Name</label>
+											<input type="firstname" name="firstname" ng-model="firstname"  class="s25inputWithValidationinput" required />
+											<span class="label label-danger" ng-show="signupForm.$error.firstname">Required</span>
+										</div>
+									</div>
+									
+									
+									<div class="s25email" id="signUpDialogemail">
+										<div id="signUpDialoginputWithValidation1" class="s25inputWithValidation">
+											<label class="s25inputWithValidationlabel" id="signUpDialoginputWithValidation1label">Last Name</label>
+											<input type="lastname" name="lastname" data-ng-model="lastname"  class="s25inputWithValidationinput" required />
+											<span class="label label-danger" ng-show="signupForm.$error.lastname">Required</span>
+										</div>
+									</div>
+									
+									<div class="s25email" id="signUpDialogemail">
+										<div id="signUpDialoginputWithValidation1" class="s25inputWithValidation">
+											<label class="s25inputWithValidationlabel" id="signUpDialoginputWithValidation1label">Choose Pass</label>
+											<input type="password" id="password" name="password" ng-model="formData.password"  class="s25inputWithValidationinput" required  />	
+
+												<span class="label label-danger" ng-show="signupForm.$error.password">Required</span>
+
+										</div>
+									</div>
+									
+									<div class="s25email" id="signUpDialogemail">
+										<div id="signUpDialoginputWithValidation1" class="s25inputWithValidation">
+											<label class="s25inputWithValidationlabel" id="signUpDialoginputWithValidation1label">Retype Pass</label>
+
+										<input type="password" class="s25inputWithValidationinput" id="password_c" name="password_c" ng-model="formData.password_c" valid-password-c required  />
+										<span  class="label label-danger"  ng-show="signupForm.password_c.$error.required">Please confirm your password.</span>
+										<span  class="label label-danger"  ng-show="!signupForm.password_c.$error.required && signupForm.password_c.$error.noMatch">Passwords do not match.</span>
+
+										</div>
+									</div>
+									
+									
+									<p id="signUpDialoginputWithValidation3errorMessage" class="s25inputWithValidationerrorMessage"></p>
+									<div class="form-group fadeMe checkbox col-sm-12">
+									  <label class="fitText" style="font-size: 15px;">
+										<input class="checkbox" name="I own a solar installation" type="checkbox" value="I own a solar installation" data-export-field="" placeholder="" style="font-size: 15px;" >
+										I own a solar installation
+									  </label>
+									</div> 
+									
+									<div class="form-group fadeMe checkbox col-sm-12">
+										<label class="fitText" style="font-size: 15px;">
+											<input class="checkbox" name="iagree" type="checkbox" data-export-field="" placeholder="" required />
+											I agree to the terms and conditions*
+											<span class="label label-danger" data-ng-show="submitted && signupForm.iagree.$error.required">Required!</span>
+										</label> 
+									</div>
+									
+
+									<div class="s25_footer">
+										<button data-ng-disabled="progress.active()" data-ng-click="signup(signupForm)" class="s25submitButton">Go</button>
+									</div>
+									
+								</form>
+							</div>
+						</div>
+					</div>
+				</modal-dialog>
+				
+			</div>
+		</div>   
+	</header>
+	  
+	<section class="main" id="production">
+		<div class="inner-container">
+			<div class="get-reward">
+				<h4 class="heading-top">Get SolarCoins for being Solar</h4>
+				<div class="border-line"></div>
+				<div class="content-area">
+					<p>Solar Coin is a new digital currency that is granted for free to solar owners (people and companies that produce solar energy). Whether off-grid or on-grid, your solar installation is entitled to receiving 1 SolarCoin for every MWh that you produce</p>
+					<p>	By joining, you help give a higher incentive to people and organizations who wish to use solar power worldwide. You also get access to tomorrow's economy with a blockchain-based technology</p>
+					<h4>Get a reward for producing solar energy!</h4>
+					<h3>Register now to begin your SolarChange!</h4>
+				</div>
+				<div class="form-reg">	  
+					<form name="getARewardForm" novalidate role="form">
+						<span class="label label-danger" data-ng-show="submitted && getARewardForm.email.$error.required">Required!</span>
+						<span class="label label-danger" data-ng-show="submitted && getARewardForm.$error.email">Invalid email!</span>
+						<input type="email" name="email" data-ng-model="email" class="text-area" placeholder="email"  required /> 
+						<button data-ng-disabled="progress.active()" data-ng-click="submit(getARewardForm)" class="btn btn-default">Submit</button>
+					</form>
+				</div> 
+			</div>
+		</div>
+			
+		<article class="solar-production reward-img" id="solar-production"></article>
+		<article class="world-change">
+			<div class="container">
+				<a href="index.html"><img src="images/solar-change-logo.jpg" alt="Brand" /></a>
+				<h2>Change the World with Solar Energy</h2>
+			</div>
+		</article>
+	</section>
+		
+	<footer ng-include="'includes/popupfooter.html'"></footer>
+</div>

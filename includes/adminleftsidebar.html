@@ -1,0 +1,40 @@
+<aside id="left-panel" ng-controller="AdminleftsidebarCtrl">
+		<div class="login-info">
+			<span>  
+				<a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
+					<img src="images/admin/avatars/sunny.png" alt="me" class="online" /> 
+					<span>{{getUserName }}test</span>
+					<i class="fa fa-angle-down"></i>
+				</a> 
+			</span>
+		</div>
+		<nav>
+			<ul>
+				
+				<li class="active">
+					<a ng-click="dashboard()" href="javascript:void(0)" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span></a>
+				</li>
+				
+				<li>
+					<a ng-click="pages()" href="javascript:void(0)"><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Content</span></a>
+				</li>
+				
+				<li>
+					<a ng-click="contacts()" href="javascript:void(0)"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i> <span class="menu-item-parent">Contacts</span></a>
+				</li>
+				
+				<!-- <li>
+					<a ng-click="newsletters()" href="javascript:void(0)"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Newsletters</span></a>
+				</li> -->
+				 
+				<li>
+					<a ng-click="faqs()" href="javascript:void(0)"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Faqs</span></a>
+				</li>
+				
+				<li>
+					<a ng-click="partner()" href="javascript:void(0)"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Partner</span></a>
+				</li>
+				
+			</ul>
+		</nav>
+	</aside>
