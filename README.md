@@ -40,4 +40,4 @@ Admin Section
 The admin section prepared for admin purpose which having the full authority to managed the different section accordingly. Admin can be login
 with the same credentials as provided. The login functionality  is properly authenticated from firebase and it is totally secured process. Without login, admin 
 can't be access any page. Admin take care of it after use should be logged out. After successfully login, admin redirected on the dashboard, which can contain
-the short description of different section. Admin can also visit from different section from same. thanks
+the short description of different section. Admin can also visit from different section from same.
